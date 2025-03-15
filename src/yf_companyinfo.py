@@ -1,7 +1,9 @@
 import yfinance as yf
 import json
 
-ticker = yf.Ticker("GOOGL")
+company = 'GOOGL'
+
+ticker = yf.Ticker(company)
 
 info_columns_mapper = {
     'market': 'market',
@@ -102,7 +104,7 @@ for balance_sheet_column, english_name in balance_sheet_columns_mapper.items():
 info_dict.update(balance_sheet_data)
 
 # JSON으로 저장
-with open("GOOGL_info.json", "w", encoding="utf-8") as f:
+with open(company + "_info.json", "w", encoding="utf-8") as f:
     json.dump(info_dict, f, indent=4)
 
-print("GOOGL 데이터가 GOOGL_info.json 파일로 저장되었습니다.")
+print(company + " 데이터가 GOOGL_info.json 파일로 저장되었습니다.")

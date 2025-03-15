@@ -1,5 +1,6 @@
 import yfinance as yf
 import json
+import os
 
 # 설정 값
 STOCK_SYMBOL = "GOOGL"
@@ -32,7 +33,12 @@ for item in news_items:
     print(f"내용: {news_entry['summary'][:100]}...\n{'-'*50}")
 
 # JSON 파일 저장
-with open('etc/news.json', 'w', encoding='utf-8') as f:
+folder_name = "etc"
+folder_path = os.path.join(os.getcwd(), folder_name)
+if not os.path.exists(folder_path):
+    os.makedirs(folder_path)
+    print(f"'{folder_name}' 폴더 생성 완료")
+with open(folder_path + '/news.json', 'w', encoding='utf-8') as f:
     json.dump(news_data, f, ensure_ascii=False, indent=2)
 
 print(f"{STOCK_SYMBOL} 관련 최신 {NEWS_COUNT}개 뉴스가 저장되었습니다.")

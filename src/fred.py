@@ -269,18 +269,23 @@ if all_data_frames:
     # result_df = result_df.dropna(subset=['S&P 500 지수'])
 
     # CSV 파일로 저장
+    folder_name = "etc"
+    folder_path = os.path.join(os.getcwd(), folder_name)
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+        print(f"'{folder_name}' 폴더 생성 완료")
+        
     try:
-        csv_path = f'etc/total.csv'
-        result_df.to_csv(csv_path, index_label="날짜", encoding='utf-8-sig')
-        print(f"Data saved to {csv_path}")
+        
+        result_df.to_csv(folder_path + "/total.csv", index_label="날짜", encoding='utf-8-sig')
+        print(f"Data saved to {folder_path}")
     except PermissionError:
         # 현재 시간을 파일명에 추가하여 새로운 파일 생성
         # from datetime import datetime
         # timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        # csv_path = f'total_{timestamp}.csv'
-        csv_path = f'etc/total.csv'
-        result_df.to_csv(csv_path, index_label="날짜", encoding='utf-8-sig')
-        print(f"Permission denied for original file. Data saved to {csv_path}")
+        # folder_path = f'total_{timestamp}.csv'
+        result_df.to_csv(folder_path + "/total.csv", index_label="날짜", encoding='utf-8-sig')
+        print(f"Permission denied for original file. Data saved to {folder_path}")
 else:
     print("No data collected for any indicators.")
 

@@ -270,7 +270,7 @@ if all_data_frames:
 
     # CSV 파일로 저장
     try:
-        csv_path = f'total.csv'
+        csv_path = f'etc/total.csv'
         result_df.to_csv(csv_path, index_label="날짜", encoding='utf-8-sig')
         print(f"Data saved to {csv_path}")
     except PermissionError:
@@ -278,7 +278,7 @@ if all_data_frames:
         # from datetime import datetime
         # timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         # csv_path = f'total_{timestamp}.csv'
-        csv_path = f'total.csv'
+        csv_path = f'etc/total.csv'
         result_df.to_csv(csv_path, index_label="날짜", encoding='utf-8-sig')
         print(f"Permission denied for original file. Data saved to {csv_path}")
 else:

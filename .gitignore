@@ -3,11 +3,8 @@
 
 
 #
-*.txt
+etc/
 .env
-*.csv
-news.json
-
 
 ### VisualStudioCode ###
 .vscode/*

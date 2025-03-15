@@ -104,7 +104,7 @@ for balance_sheet_column, english_name in balance_sheet_columns_mapper.items():
 info_dict.update(balance_sheet_data)
 
 # JSON으로 저장
-with open(company + "_info.json", "w", encoding="utf-8") as f:
+with open("etc/" + company + "_info.json", "w", encoding="utf-8") as f:
     json.dump(info_dict, f, indent=4)
 
 print(company + " 데이터가 GOOGL_info.json 파일로 저장되었습니다.")

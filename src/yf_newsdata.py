@@ -32,7 +32,7 @@ for item in news_items:
     print(f"내용: {news_entry['summary'][:100]}...\n{'-'*50}")
 
 # JSON 파일 저장
-with open('news.json', 'w', encoding='utf-8') as f:
+with open('etc/news.json', 'w', encoding='utf-8') as f:
     json.dump(news_data, f, ensure_ascii=False, indent=2)
 
 print(f"{STOCK_SYMBOL} 관련 최신 {NEWS_COUNT}개 뉴스가 저장되었습니다.")

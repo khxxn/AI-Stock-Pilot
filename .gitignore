@@ -6,6 +6,7 @@
 *.txt
 .env
 *.csv
+news.json
 
 
 ### VisualStudioCode ###

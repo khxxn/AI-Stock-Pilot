@@ -1,46 +1,38 @@
 import yfinance as yf
-from datetime import datetime
-import csv
+import json
 
-def format_pub_date(full_date_str):
-    try:
-        dt = datetime.fromisoformat(full_date_str.replace('Z', ''))
-        return dt.strftime("%Y-%m-%d")
-    except:
-        return full_date_str[:10]
+# 설정 값
+STOCK_SYMBOL = "GOOGL"
+NEWS_COUNT = 20  # 원하는 뉴스 개수 설정
 
-# CSV 파일 생성
-with open('news.csv', 'w', newline='', encoding='utf-8-sig') as csvfile:
-    # CSV 작성기 생성 및 헤더 작성
-    fieldnames = ['날짜', '제목', '출처', '요약']
-    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-    writer.writeheader()
+def get_news_summary(content_item):
+    return content_item.get('summary', '콘텐츠 없음')
 
-    # 뉴스 데이터 가져오기
-    dat = yf.Ticker("GOOGL")
-    news = dat.get_news(count=5)
+# JSON 데이터 구조 생성
+news_data = []
 
-    # 각 뉴스 항목 처리
-    for item in news:
-        content = item['content']
-        
-        # 데이터 추출
-        pub_date = format_pub_date(content['pubDate'])
-        title = content['title']
-        provider = content['provider']['displayName']
-        summary = content.get('summary', '요약 내용 없음')  # summary가 없는 경우 대비
+# 뉴스 데이터 가져오기
+dat = yf.Ticker(STOCK_SYMBOL)
+news_items = dat.get_news(count=NEWS_COUNT)  # count 파라미터 추가
 
-        # CSV 파일에 기록
-        writer.writerow({
-            '날짜': pub_date,
-            '제목': title,
-            '출처': provider,
-            '요약': summary
-        })
+for item in news_items:
+    content = item['content']
+    news_entry = {
+        "stock": STOCK_SYMBOL,
+        "date": content['pubDate'],
+        "title": content['title'],
+        "provider": content['provider'].get('displayName', '알 수 없음'),
+        "summary": get_news_summary(content)
+    }
+    news_data.append(news_entry)
 
-        # 콘솔 출력 (기존 기능 유지)
-        print(f"[{pub_date}] {title}")
-        print(f"출처: {provider}")
-        print(f"요약: {summary}\n{'-'*50}")
+    # 콘솔 출력
+    print(f"[{news_entry['date']}] {news_entry['title']}")
+    print(f"출처: {news_entry['provider']}")
+    print(f"내용: {news_entry['summary'][:100]}...\n{'-'*50}")
 
-print("뉴스 데이터가 news.csv 파일로 저장되었습니다.")
+# JSON 파일 저장
+with open('news.json', 'w', encoding='utf-8') as f:
+    json.dump(news_data, f, ensure_ascii=False, indent=2)
+
+print(f"{STOCK_SYMBOL} 관련 최신 {NEWS_COUNT}개 뉴스가 저장되었습니다.")

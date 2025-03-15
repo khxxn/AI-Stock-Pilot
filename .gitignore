@@ -5,6 +5,7 @@
 #
 *.txt
 .env
+*.csv
 
 
 ### VisualStudioCode ###

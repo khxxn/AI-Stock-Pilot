@@ -5,6 +5,7 @@
 #
 report/
 .env
+terminal.ipynb
 
 ### VisualStudioCode ###
 .vscode/*

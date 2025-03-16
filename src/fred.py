@@ -269,14 +269,13 @@ if all_data_frames:
     # result_df = result_df.dropna(subset=['S&P 500 지수'])
 
     # CSV 파일로 저장
-    folder_name = "etc"
+    folder_name = "report"
     folder_path = os.path.join(os.getcwd(), folder_name)
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
         print(f"'{folder_name}' 폴더 생성 완료")
         
     try:
-        
         result_df.to_csv(folder_path + "/total.csv", index_label="날짜", encoding='utf-8-sig')
         print(f"Data saved to {folder_path}")
     except PermissionError:

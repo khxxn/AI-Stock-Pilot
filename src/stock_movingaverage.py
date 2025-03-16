@@ -38,7 +38,7 @@ else:
 
     
             # 저장할 폴더 설정
-            folder_name = "etc"
+            folder_name = "report"
             folder_path = os.path.join(os.getcwd(), folder_name)
             if not os.path.exists(folder_path):
                 os.makedirs(folder_path)

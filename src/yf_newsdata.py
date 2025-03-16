@@ -33,7 +33,7 @@ for item in news_items:
     print(f"내용: {news_entry['summary'][:100]}...\n{'-'*50}")
 
 # JSON 파일 저장
-folder_name = "etc"
+folder_name = "report"
 folder_path = os.path.join(os.getcwd(), folder_name)
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)

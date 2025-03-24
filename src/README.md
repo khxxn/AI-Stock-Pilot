@@ -48,19 +48,9 @@ AI STOCK PILOT은 주식 시장 데이터를 다양한 소스로부터 수집하
 
 ### 사용 방법
 
-1. Google Colab 환경 설정: main.ipynb 파일을 Google Colab에서 엽니다.
+1. main.ipynb 파일을 Google Colab에서 엽니다.
 2. API 키 입력: DeepSeek API를 사용하기 위해 Google Colab의 사용자 데이터 (userdata)에 API 키를 등록합니다.<br/>![Image](https://github.com/user-attachments/assets/05ee8628-661a-47ec-b6c0-be2ac9f6e0dc)
-3. 데이터 설정: 분석하려는 주식 종목, 기간 등 필요한 데이터를 노트북 내에서 설정합니다.
-4. 노트북 순차 실행: transformer.ipynb 파일을 위에서부터 순서대로 실행하여 데이터 수집, 모델 학습 (선택 사항), 예측 및 판단 과정을 진행합니다.
-5. 결과 확인: 예측된 주가 정보와 DeepSeek API의 매수/매도 판단 결과를 확인하고, 생성된 보고서를 분석합니다.
-
-
-
-
-### 기술 스택
-
-
-
-
-
-
+3. 런타임 유형 GPU로 설정
+4. 데이터 설정: 분석하려는 주식 종목, 기간 등 필요한 데이터를 노트북 내에서 설정합니다. (fred_indicators, yfinance_indicators, nasdaq_top_100, STOCK_SYMBOL, target_columns, economic_features(fred_indecators와 yfinance_indicators에 포함된 내용이여야 함))
+5. 노트북 순차 실행: transformer.ipynb 파일을 위에서부터 순서대로 실행하여 데이터 수집, 모델 학습 (선택 사항), 예측 및 판단 과정을 진행합니다.
+6. 결과 확인: 예측된 주가 정보와 DeepSeek API의 매수/매도 판단 결과를 확인하고, 생성된 보고서를 분석합니다.

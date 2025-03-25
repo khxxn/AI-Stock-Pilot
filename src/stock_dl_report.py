@@ -3,8 +3,7 @@ import numpy as np
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 import json
 import os
-
-
+STOCK_SYMBOL = "GOOGL"
 # Evaluation Function
 def evaluate_predictions(data, target_columns, forecast_horizon):
     """
@@ -88,7 +87,7 @@ def analyze_rise_predictions(data, target_columns):
 # Main Code
 # File path setting
 folder_path = os.path.join(os.getcwd(), "report")
-predicted_file_path = folder_path + '/predicted_stock.csv'
+predicted_file_path = folder_path + f'/{STOCK_SYMBOL}_predicted_stock.csv'
 # 1) Load Data
 data = pd.read_csv(predicted_file_path, parse_dates=['날짜'])
 # 2) Target columns
@@ -138,7 +137,7 @@ column_order = [
 ]
 final_results = final_results[column_order]
 # 8) Save final results to JSON
-final_output_path = folder_path + '/final_stock_analysis.json'
+final_output_path = folder_path + f'/final_{STOCK_SYMBOL}_analysis.json'
 final_results_json = final_results.to_json(orient='records', force_ascii=False)
 with open(final_output_path, 'w', encoding='utf-8') as f:
     json.dump(json.loads(final_results_json), f, ensure_ascii=False, indent=4)

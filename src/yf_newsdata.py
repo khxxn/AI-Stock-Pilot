@@ -38,7 +38,7 @@ folder_path = os.path.join(os.getcwd(), folder_name)
 if not os.path.exists(folder_path):
     os.makedirs(folder_path)
     print(f"'{folder_name}' 폴더 생성 완료")
-with open(folder_path + '/news.json', 'w', encoding='utf-8') as f:
+with open(folder_path + f'/{STOCK_SYMBOL}_news.json', 'w', encoding='utf-8') as f:
     json.dump(news_data, f, ensure_ascii=False, indent=2)
 
 print(f"{STOCK_SYMBOL} 관련 최신 {NEWS_COUNT}개 뉴스가 저장되었습니다.")

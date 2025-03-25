@@ -3,7 +3,7 @@
 
 
 #
-report/
+test.py
 .env
 terminal.ipynb
 .ipynb_checkpoints

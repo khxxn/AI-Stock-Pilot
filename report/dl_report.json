@@ -1,0 +1,14 @@
+[
+    {
+        "Stock": "구글 A",
+        "MAE": 3.0461022734,
+        "MSE": 19.6637190982,
+        "RMSE": 4.4343792235,
+        "MAPE (%)": 9.9032158359,
+        "Accuracy (%)": 90.0967841641,
+        "Last Actual Price": 167.6799926758,
+        "Predicted Future Price": 190.44444,
+        "Predicted Rise": true,
+        "Rise Probability (%)": 13.5761261442
+    }
+]

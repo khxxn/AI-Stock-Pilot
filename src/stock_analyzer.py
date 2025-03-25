@@ -3,6 +3,7 @@ from openai import OpenAI
 import os
 from dotenv import load_dotenv
 
+STOCK_SYMBOL = "GOOGL"
 # DeepSeek API 설정
 load_dotenv()
 DEEPSEEK_API_KEY = os.getenv('DEEPSEEK_API_KEY')
@@ -43,7 +44,7 @@ def get_deepseek_recommendation(stock_data, news_data, stock_info):
       (lower is better)
     - Accuracy (%): Computed as 100 - MAPE, serving as a simple accuracy measure
     - Rise_probability (%): represents the percentage change of the predicted future price relative to the last actual price. In other words, it represents the predicted price increase rate as a percentage.
-    Stock: {stock_data['Stock']}
+    Stock: {STOCK_SYMBOL}
     Last Actual Price: {stock_data['Last Actual Price']}
     Predicted Future Price: {stock_data['Predicted Future Price']}
     Rise Probability (%): {stock_data['Rise Probability (%)']}%
@@ -82,10 +83,10 @@ def get_deepseek_recommendation(stock_data, news_data, stock_info):
 #######################
 # File path setting
 folder_path = os.path.join(os.getcwd(), "report")
-news_path = folder_path + '/news.json'
-stock_data_path = folder_path + '/final_stock_analysis.json'
-stock_info_path = folder_path + '/GOOGL_info.json'
-price_data_path = folder_path + '/GOOGL_Moving_Average.json'
+news_path = folder_path + f'/{STOCK_SYMBOL}_news.json'
+stock_data_path = folder_path + f'/final_{STOCK_SYMBOL}_analysis.json'
+stock_info_path = folder_path + f'/{STOCK_SYMBOL}_info.json'
+price_data_path = folder_path + f'/{STOCK_SYMBOL}_Moving_Average.json'
 
 # 데이터 로드
 news_data = load_news_data(news_path)

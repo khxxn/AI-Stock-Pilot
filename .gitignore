@@ -3,6 +3,7 @@
 
 
 #
+report/
 .env
 terminal.ipynb
 .ipynb_checkpoints

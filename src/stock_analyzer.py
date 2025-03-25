@@ -3,6 +3,7 @@ from openai import OpenAI
 import os
 from dotenv import load_dotenv
 
+# 딥시크 구매 판단은 한개의 종목만 있는 dl_report만 가능
 STOCK_SYMBOL = "GOOGL"
 # DeepSeek API 설정
 load_dotenv()
@@ -84,7 +85,7 @@ def get_deepseek_recommendation(stock_data, news_data, stock_info):
 # File path setting
 folder_path = os.path.join(os.getcwd(), "report")
 news_path = folder_path + f'/{STOCK_SYMBOL}_news.json'
-stock_data_path = folder_path + f'/final_{STOCK_SYMBOL}_analysis.json'
+stock_data_path = folder_path + f'/dl_report.json'
 stock_info_path = folder_path + f'/{STOCK_SYMBOL}_info.json'
 price_data_path = folder_path + f'/{STOCK_SYMBOL}_Moving_Average.json'
 

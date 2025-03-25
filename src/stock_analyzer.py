@@ -3,8 +3,7 @@ from openai import OpenAI
 import os
 from dotenv import load_dotenv
 
-# 딥시크 구매 판단은 한개의 종목만 있는 dl_report만 가능
-STOCK_SYMBOL = "GOOGL"
+# 딥시크 구매 판단은 한개의 종목만 있는 dl_report만 가능 dl_report에서 첫번째 종목을 분석하도록 설정되어 있습니다
 # DeepSeek API 설정
 load_dotenv()
 DEEPSEEK_API_KEY = os.getenv('DEEPSEEK_API_KEY')
@@ -45,7 +44,7 @@ def get_deepseek_recommendation(stock_data, news_data, stock_info):
       (lower is better)
     - Accuracy (%): Computed as 100 - MAPE, serving as a simple accuracy measure
     - Rise_probability (%): represents the percentage change of the predicted future price relative to the last actual price. In other words, it represents the predicted price increase rate as a percentage.
-    Stock: {STOCK_SYMBOL}
+    Stock: {stock_data['Stock']}
     Last Actual Price: {stock_data['Last Actual Price']}
     Predicted Future Price: {stock_data['Predicted Future Price']}
     Rise Probability (%): {stock_data['Rise Probability (%)']}%
@@ -83,6 +82,7 @@ def get_deepseek_recommendation(stock_data, news_data, stock_info):
 # Main Code
 #######################
 # File path setting
+STOCK_SYMBOL = 'GOOGL' # 분석할 종목 데이터 주식 심볼
 folder_path = os.path.join(os.getcwd(), "report")
 news_path = folder_path + f'/{STOCK_SYMBOL}_news.json'
 stock_data_path = folder_path + f'/dl_report.json'
@@ -101,4 +101,4 @@ if stock_data_list:
     # 결과 저장 및 출력
     get_deepseek_recommendation(stock_data, news_data, stock_info)
 else:
-    print("final_stock_analysis.json 파일에 데이터가 없습니다.")
+    print("/dl_report.json 파일에 데이터가 없습니다.")

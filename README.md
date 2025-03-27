@@ -22,6 +22,11 @@ AI STOCK PILOT은 딥러닝과 생성형 AI를 활용하여 주가를 예측하�
 
 ## 📂파일 구조
 ### Lost112_Notification/
+├── report/<br/>
+│   ├── dl_report.json<br/>
+│   ├── predicted_stock.csv<br/>
+│   ├── total.csv<br/>
+│   └── ...<br/>
 ├── src/<br/>
 │   ├── fred.py<br/>
 │   ├── stock_analyzer.py<br/>
@@ -30,8 +35,9 @@ AI STOCK PILOT은 딥러닝과 생성형 AI를 활용하여 주가를 예측하�
 │   ├── transformer.ipynb<br/>
 │   ├── yf_companyinfo.py<br/>
 │   └── yf_newsdata.py<br/>
-└── .gitignore<br/>
-└── README.md
+├── .gitignore<br/>
+├── README.md<br/>
+└── main.ipynb
 
 ## 📌프로그램 설명
 AI STOCK PILOT은 주식 시장 데이터를 다양한 소스로부터 수집하고, 딥러닝 모델인 Transformer를 사용하여 일주일 후의 주가 변동을 예측합니다. 예측된 주가 정보를 바탕으로 생성형 AI인 DeepSeek API를 활용하여 주식 매수/매도 판단을 생성하고, 사용자에게 제공합니다.
@@ -49,7 +55,7 @@ AI STOCK PILOT은 주식 시장 데이터를 다양한 소스로부터 수집하
 ### 사용 방법
 
 1. main.ipynb 파일을 Google Colab에서 엽니다.
-2. API 키 입력: DeepSeek API를 사용하기 위해 Google Colab에 API 키를 등록합니다.<br/>![Image](https://github.com/user-attachments/assets/05ee8628-661a-47ec-b6c0-be2ac9f6e0dc)
+2. API 키 입력: DeepSeek API를 사용하기 위해 Google Colab에 API 키를 등록합니다.<br/>![Image](https://github.com/user-attachments/assets/cc570fa6-34a2-4c11-b021-41d3dba47ebd)
 3. 런타임 유형 GPU로 설정합니다.
 4. 데이터 설정: 분석하려는 주식 종목, 기간 등 필요한 데이터를 노트북 내에서 설정합니다. (fred_indicators, yfinance_indicators, nasdaq_top_100, STOCK_SYMBOL, target_columns, economic_features)
 5. 노트북 순차 실행: transformer.ipynb 파일을 위에서부터 순서대로 실행하여 데이터 수집, 모델 학습, 예측 및 판단 과정을 진행합니다.

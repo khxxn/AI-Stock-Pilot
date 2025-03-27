@@ -1,6 +1,6 @@
 # 📈 AI STOCK PILOT (주가 예측 및 구매판단 프로그램)
 
-최신버전(ipynb) 다운로드: v1.0.0 [다운로드]()
+최신버전(ipynb) 다운로드: v1.0.0 [다운로드](https://github.com/khxxn/AI-Stock-Pilot/releases/tag/v1.0.0)
 
 ## 📃프로젝트 설명
 AI STOCK PILOT은 딥러닝과 생성형 AI를 활용하여 주가를 예측하고, 예측 결과를 바탕으로 주식 매수/매도 판단을 지원하는 프로그램입니다. 특히 Transformer 모델을 사용하여 시계열 데이터인 주가 예측의 정확도를 높이고, DeepSeek API를 통해 투자 판단의 근거를 생성합니다.
@@ -55,7 +55,7 @@ AI STOCK PILOT은 주식 시장 데이터를 다양한 소스로부터 수집하
 ### 사용 방법
 
 1. main.ipynb 파일을 Google Colab에서 엽니다.
-2. API 키 입력: DeepSeek API를 사용하기 위해 Google Colab에 API 키를 등록합니다.<br/>![Image](https://github.com/user-attachments/assets/cc570fa6-34a2-4c11-b021-41d3dba47ebd)
+2. API 키 입력: DeepSeek API를 사용하기 위해 Google Colab에 API 키를 등록합니다.<br/>![Image](https://github.com/user-attachments/assets/86851afe-422a-493a-a638-7daaf83a1ac2)
 3. 런타임 유형 GPU로 설정합니다.
 4. 데이터 설정: 분석하려는 주식 종목, 기간 등 필요한 데이터를 노트북 내에서 설정합니다. (fred_indicators, yfinance_indicators, nasdaq_top_100, STOCK_SYMBOL, target_columns, economic_features)
 5. 노트북 순차 실행: transformer.ipynb 파일을 위에서부터 순서대로 실행하여 데이터 수집, 모델 학습, 예측 및 판단 과정을 진행합니다.

@@ -1,4 +1,4 @@
-# AI STOCK PILOT
+# 📈 AI STOCK PILOT (주가 예측 및 구매판단 프로그램)
 
 최신버전(ipynb) 다운로드: v1.0.0 [다운로드]()
 
@@ -21,7 +21,7 @@ AI STOCK PILOT은 딥러닝과 생성형 AI를 활용하여 주가를 예측하�
     - 시각화: matplotlib.pyplot, matplotlib.dates
 
 ## 📂파일 구조
-### Lost112_Notification/
+### AI-Stock-Pilot/
 ├── report/<br/>
 │   ├── dl_report.json<br/>
 │   ├── predicted_stock.csv<br/>
